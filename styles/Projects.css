@@ -1,0 +1,614 @@
+/* =============================== */
+/* GLOBAL STYLES */
+/* =============================== */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+    /* prevent horizontal scroll */
+    background: #111;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =============================== */
+/* NAVIGATION BAR - INDUSTRIAL THEME */
+/* =============================== */
+.navbar {
+    background: #111;
+    padding: 15px 60px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 4px solid #d4b100;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    /* reduced from 1200px */
+    width: 100%;
+    margin: 0 auto;
+    padding-right: 20px;
+    /* add a little right padding */
+}
+
+.logo img {
+    height: 130px;
+    width: auto;
+}
+
+.logo {
+    margin-left: -40px;
+    /* move 20px to the left */
+}
+
+/* Align logo + text horizontally */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* space between logo & name */
+}
+
+/* Company name beside logo */
+.company-name {
+    font-family: "Oswald", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    gap: 5px;
+    text-transform: uppercase;
+}
+
+/* TRINCO white */
+.company-name .trinco {
+    color: #fff;
+}
+
+/* SYNERGY theme yellow */
+.company-name .synergy {
+    color: #d4b100;
+}
+
+/* Responsive scaling */
+@media(max-width:768px) {
+    .company-name {
+        font-size: 22px;
+    }
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.nav-links a:hover {
+    color: #111;
+    background: #d4b100;
+}
+
+@media(max-width: 1024px) {
+    .navbar {
+        padding: 15px 40px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+@media(max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        background: #111;
+        border-left: 2px solid #d4b100;
+        display: none;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+}
+
+/* =============================== */
+/* HERO SECTION - INDUSTRIAL STYLE */
+/* =============================== */
+.hero {
+    background: #111;
+    padding: 120px 60px;
+    color: #fff;
+    text-align: left;
+    border-bottom: 5px solid #d4b100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content h1.build {
+    font-family: "Oswald", sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #d4b100;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.hero-content h1.top {
+    font-family: "Oswald", sans-serif;
+    font-size: 60px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ccc;
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.hero-content .btn {
+    background: #d4b100;
+    color: #111;
+    padding: 18px 40px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 0;
+}
+
+.hero-content .btn:hover {
+    background: #fff;
+    color: #111;
+    transform: translateY(-3px);
+    border: 2px solid #d4b100;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    height: 100%;
+    background: url("/images/lucas-kepner-Yn8D5B8C-eY-unsplash.jpg") no-repeat center center / contain;
+    opacity: 0.45;
+    filter: grayscale(55%) contrast(1.5);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    /* not full width */
+    height: 100%;
+    right: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.85), transparent);
+    z-index: 5;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+}
+
+/* ===========================
+   PROJECTS SECTION
+=========================== */
+.projects-section {
+  padding: 80px 8%;
+  background: #111;
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+
+.section-tag {
+  color: #d4b100;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.projects-header h2 {
+    margin-bottom: 80px;
+  font-family: "Oswald", sans-serif;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.projects-controls {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* ===========================
+   FILTER BUTTONS
+=========================== */
+.project-filters button {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.project-filters .active {
+  color: #d4b100;
+}
+
+/* ===========================
+   PAGINATION
+=========================== */
+.pagination {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination button {
+  background: transparent;
+  border: 1px solid #333;
+  color: #aaa;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+  border-color: #d4b100;
+  color: #d4b100;
+}
+
+.pagination .active {
+  border-color: #d4b100;
+  color: #d4b100;
+}
+
+.pagination-bottom {
+  margin-top: 60px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ===========================
+   PROJECT GRID
+=========================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* ===========================
+   PROJECT CARD
+=========================== */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #222;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Overlay info */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay h3 {
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.project-overlay span {
+  color: #d4b100;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ===========================
+   LIGHTBOX
+=========================== */
+.project-gallery {
+  display: none;
+}
+
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  z-index: 9999;
+}
+
+.project-lightbox.show {
+  display: flex;
+}
+
+.lightbox-close {
+  align-self: flex-end;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.lightbox-main img {
+  max-width: 90%;
+  max-height: 65vh;
+  object-fit: contain;
+  border: 2px solid #d4b100;
+}
+
+#lightboxCaption {
+  margin-top: 10px;
+  color: #d4b100;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Thumbnails */
+.lightbox-thumbs {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  transform: translateY(-10px);
+}
+
+.lightbox-thumbs img {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  opacity: 0.5;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.lightbox-thumbs img.active {
+  opacity: 1;
+  border-color: #d4b100;
+}
+
+/* LIGHTBOX NAVIGATION ARROWS */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: #fff;
+  font-size: 38px;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.lightbox-nav:hover {
+  background: rgba(212,177,0,0.85);
+  color: #111;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.lightbox-nav.prev { left: 25px; }
+.lightbox-nav.next { right: 25px; }
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .lightbox-thumbs img {
+    width: 70px;
+    height: 50px;
+  }
+  .lightbox-nav {
+    font-size: 28px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+
+
+/* =============================== */
+/* FOOTER */
+/* =============================== */
+
+.footer {
+    background: #0c0c0c;
+    padding: 60px 50px;
+    border-top: 5px solid #d4b100;
+    color: #ccc;
+    font-family: "Montserrat", sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.footer-column h1 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 1px;
+}
+
+.footer-column h3 {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #d4b100;
+}
+
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Logo */
+.footer-logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #d4b100;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+/* Copyright */
+.footer-bottom {
+    text-align: center;
+    margin-top: 45px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}

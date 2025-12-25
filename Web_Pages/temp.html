@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinco Synergy</title>
+    <link rel="icon" type="image/png" href="/images/Circular logo.png">
+    <link rel="stylesheet" href="/styles/temp.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="first_page.html" class="logo">
+                    <img src="/images/Circular logo.png" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+             <li><a href="index.html">Home</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <!--<li><a href="services.html">Services</a></li>-->
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="build">Residential & Housing</h1>
+        </div>
+    </section>
+
+
+    <!-- ===========================
+     PROJECTS SECTION
+=========================== -->
+<section class="projects-section">
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb">
+    <a href="/">Home</a> &gt; <span>Projects</span>
+  </nav>
+
+  <!-- Header & Controls -->
+  <div class="projects-header">
+    <div>
+      <span class="section-tag">Portfolio</span>
+      <h2>Featured Projects</h2>
+    </div>
+
+    <div class="projects-controls">
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="residential">Residential</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+      </div>
+
+      <div class="pagination">
+        <button class="prev-btn">Prev</button>
+        <button class="page-btn active" data-page="1">1</button>
+        <button class="page-btn" data-page="2">2</button>
+        <button class="page-btn" data-page="3">3</button>
+        <button class="next-btn">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects Grid -->
+  <div class="projects-grid">
+    <!-- Sample Project Card -->
+    <div class="project-card residential" data-images='[
+      {"src":"/images/archi drawings/first/first.PNG","caption":"Front 3D View"},
+      {"src":"/images/archi drawings/first/second.PNG","caption":"Rear Elevation"},
+      {"src":"/images/archi drawings/first/third.PNG","caption":"Left Elevation"},
+      {"src":"/images/archi drawings/first/fourth.PNG","caption":"Right Elevation"},
+      {"src":"/images/archi drawings/first/fifth.PNG","caption":"Floor Plan"},
+      {"src":"/images/archi drawings/first/sixth.PNG","caption":"Blueprint Layout"}
+    ]'>
+      <img src="/images/archi drawings/first/first.PNG" alt="Luxury Residence Front View" loading="lazy">
+      <div class="project-overlay">
+        <h3>Luxury Residence</h3>
+        <span>Residential</span>
+      </div>
+    </div>
+
+    <!-- Repeat for other projects -->
+    <!-- Only include 12 projects per page -->
+  </div>
+
+  <!-- Bottom Pagination -->
+  <div class="pagination pagination-bottom">
+    <button class="prev-btn">Prev</button>
+    <button class="page-btn active" data-page="1">1</button>
+    <button class="page-btn" data-page="2">2</button>
+    <button class="page-btn" data-page="3">3</button>
+    <button class="next-btn">Next</button>
+  </div>
+</section>
+
+<!-- ===========================
+     LIGHTBOX
+=========================== -->
+<div class="project-lightbox" id="projectLightbox">
+  <span class="lightbox-close" tabindex="0">&times;</span>
+  <div class="lightbox-main">
+    <img id="lightboxMain" alt="">
+    <p id="lightboxCaption"></p>
+  </div>
+  <button class="lightbox-nav prev">&#10094;</button>
+  <button class="lightbox-nav next">&#10095;</button>
+  <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+</div>
+
+<!-- ===========================
+     CSS
+=========================== -->
+<style>
+/* Section */
+.projects-section {
+  padding: 80px 8%;
+  background: #111;
+  color: #fff;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  color: #aaa;
+}
+.breadcrumb a {
+  color: #d4b100;
+  text-decoration: none;
+}
+
+/* Header & Filters */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+.section-tag {
+  color: #d4b100;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.projects-header h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.projects-controls {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Filters */
+.project-filters button {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.project-filters .active {
+  color: #d4b100;
+}
+
+/* Pagination */
+.pagination button {
+  background: transparent;
+  border: 1px solid #333;
+  color: #aaa;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.pagination .active {
+  border-color: #d4b100;
+  color: #d4b100;
+}
+
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Card */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.project-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+.project-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.project-card:hover img {
+  transform: scale(1.08);
+}
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+.project-overlay h3 {
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+}
+.project-overlay span {
+  color: #d4b100;
+  font-size: 0.85rem;
+}
+
+/* Lightbox */
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  z-index: 9999;
+}
+.project-lightbox.show {
+  display: flex;
+}
+.lightbox-close {
+  align-self: flex-end;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
+.lightbox-main img {
+  max-width: 90%;
+  max-height: 65vh;
+  object-fit: contain;
+}
+#lightboxCaption {
+  margin-top: 10px;
+  color: #d4b100;
+  font-weight: 700;
+}
+/* Thumbnails */
+.lightbox-thumbs {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  transform: translateY(-10px);
+}
+.lightbox-thumbs img {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  opacity: 0.5;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.lightbox-thumbs img.active {
+  opacity: 1;
+  border-color: #d4b100;
+}
+/* Lightbox nav */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: #fff;
+  font-size: 38px;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10;
+}
+.lightbox-nav:hover {
+  background: rgba(212,177,0,0.85);
+  color: #111;
+  transform: translateY(-50%) scale(1.05);
+}
+.lightbox-nav.prev { left: 25px; }
+.lightbox-nav.next { right: 25px; }
+/* Responsive */
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .lightbox-nav { font-size: 28px; width: 45px; height: 45px; }
+}
+</style>
+
+<!-- ===========================
+     JAVASCRIPT
+=========================== -->
+<script>
+// FILTER + PAGINATION
+const filterBtns = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project-card");
+const projectsGrid = document.querySelector(".projects-grid");
+const paginationBtns = document.querySelectorAll(".page-btn");
+const prevBtns = document.querySelectorAll(".prev-btn");
+const nextBtns = document.querySelectorAll(".next-btn");
+let currentFilter = "all";
+let currentPage = 1;
+const itemsPerPage = 12;
+
+function showProjects() {
+  let filtered = Array.from(projects).filter(p =>
+    currentFilter === "all" || p.classList.contains(currentFilter)
+  );
+
+  let totalPages = Math.ceil(filtered.length / itemsPerPage);
+  if (currentPage > totalPages) currentPage = totalPages || 1;
+
+  projects.forEach(p => p.style.display = "none");
+  filtered.slice((currentPage-1)*itemsPerPage, currentPage*itemsPerPage).forEach(p => p.style.display = "block");
+
+  // Animation
+  filtered.forEach((p,i) => {
+    if(p.style.display==='block') setTimeout(()=>p.classList.add('show'), i*50);
+    else p.classList.remove('show');
+  });
+
+  // Update pagination active state
+  paginationBtns.forEach(b => b.classList.remove("active"));
+  paginationBtns.forEach(b => {
+    if(b.dataset.page == currentPage) b.classList.add("active");
+  });
+}
+
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentFilter = btn.dataset.filter;
+    currentPage = 1;
+    showProjects();
+  });
+});
+
+paginationBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    currentPage = parseInt(btn.dataset.page);
+    showProjects();
+  });
+});
+prevBtns.forEach(btn => btn.addEventListener("click", ()=>{
+  if(currentPage>1) currentPage--;
+  showProjects();
+}));
+nextBtns.forEach(btn => btn.addEventListener("click", ()=>{
+  currentPage++;
+  showProjects();
+}));
+
+// INITIAL DISPLAY
+showProjects();
+
+// LIGHTBOX
+const lightbox = document.getElementById("projectLightbox");
+const mainImg = document.getElementById("lightboxMain");
+const caption = document.getElementById("lightboxCaption");
+const thumbs = document.getElementById("lightboxThumbs");
+const closeBtn = document.querySelector(".lightbox-close");
+
+let images = [];
+let index = 0;
+
+projects.forEach(card => {
+  card.addEventListener("click", () => {
+    images = JSON.parse(card.dataset.images);
+    openLightbox(0);
+  });
+});
+
+function openLightbox(i){
+  index=i;
+  updateMain();
+  thumbs.innerHTML = "";
+  images.forEach((img, idx)=>{
+    const t = document.createElement("img");
+    t.src = img.src;
+    t.alt = img.caption;
+    if(idx===index) t.classList.add("active");
+    t.addEventListener("click", ()=>openLightbox(idx));
+    thumbs.appendChild(t);
+  });
+  lightbox.classList.add("show");
+}
+
+function updateMain(){
+  const img = images[index];
+  mainImg.src = img.src;
+  mainImg.alt = img.caption;
+  caption.textContent = img.caption;
+  thumbs.querySelectorAll("img").forEach((t,i)=> t.classList.toggle("active", i===index));
+}
+
+closeBtn.addEventListener("click", ()=>lightbox.classList.remove("show"));
+document.addEventListener("keydown", e=>{
+  if(!lightbox.classList.contains("show")) return;
+  if(e.key==="Escape") lightbox.classList.remove("show");
+  if(e.key==="ArrowRight"){ index++; updateMain();}
+  if(e.key==="ArrowLeft"){ index--; updateMain();}
+  index=(index+images.length)%images.length;
+});
+
+// Swipe support for mobile
+let startX = 0;
+mainImg.addEventListener("touchstart", e=> startX = e.touches[0].clientX);
+mainImg.addEventListener("touchend", e=>{
+  const endX = e.changedTouches[0].clientX;
+  if(startX - endX > 50) index++;
+  if(endX - startX > 50) index--;
+  index=(index+images.length)%images.length;
+  updateMain();
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+       <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Column 1: Logo -->
+            <div class="footer-column">
+                <a href="index.html" class="logo">
+                    <img src="/images/Circular logo.png" alt="Company Logo" class="footer-logo">
+                </a>
+            </div>
+
+            <!-- Column 2: Services -->
+            <div class="footer-column">
+                <h2>Our Services</h2>
+                <h3>Architectural Design</h3>
+                <h3>Residential & Housing</h3>
+                <h3>Institutional & Community</h3>
+                <h3>Commercial & Hospitality</h3>
+                <h3>Turnkey Solutions</h3>
+                <h3>Renovation & Remodeling</h3>
+            </div>
+
+            <!-- Column 3: Location -->
+            <div class="footer-column">
+                <h1>Location &#38 Contact</h1>
+                <p>Ezeuzu Junction By Udoka Second Gate Obunagu, Awka-South, Awka Anambra, Nigeria</p>
+                <p>Phone: +234 123 456 789</p>
+                <p>Phone: +234 123 456 789</p>
+                <p>Email: info@yourcompany.com</p>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 - <span id="year"></span> Trinco Synergy. All Rights Reserved.</p>
+
+            <div class="social-icons">
+                <!-- Facebook -->
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24H12.82V14.706h-3.1v-3.61h3.1V8.413c0-3.066 1.867-4.737 4.6-4.737 1.31 0 2.437.097 2.767.14v3.21l-1.9.001c-1.494 0-1.783.71-1.783 1.75v2.296h3.566l-.465 3.61h-3.101V24h6.076c.725 0 1.325-.6 1.325-1.337V1.337C24 .6 23.4 0 22.675 0z" />
+                    </svg>
+                </a>
+
+                <!-- Twitter/X -->
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 
+        4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 
+        1.195a4.916 4.916 0 0 0-8.38 4.482A13.94 13.94 0 0 1 
+        1.671 3.149a4.917 4.917 0 0 0 1.523 6.573 4.903 4.903 
+        0 0 1-2.229-.616v.061a4.918 4.918 0 0 0 3.946 4.827 
+        4.996 4.996 0 0 1-2.224.084 4.923 4.923 0 0 0 4.597 
+        3.417A9.867 9.867 0 0 1 0 19.54a13.945 13.945 0 0 0 
+        7.548 2.212c9.057 0 14.01-7.514 
+        14.01-14.01 0-.213-.004-.425-.014-.636A9.936 
+        9.936 0 0 0 24 4.557z" />
+                    </svg>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 
+        1.366.062 2.633.343 3.608 1.318.975.975 
+        1.256 2.242 1.318 3.608.058 1.266.069 
+        1.646.069 4.841s-.011 3.575-.069 
+        4.841c-.062 1.366-.343 2.633-1.318 
+        3.608-.975.975-2.242 1.256-3.608 
+        1.318-1.266.058-1.646.069-4.85.069s-3.584-.011-4.85-.069c-1.366-.062-2.633-.343-3.608-1.318-.975-.975-1.256-2.242-1.318-3.608C2.175 
+        15.584 2.163 15.204 2.163 
+        12s.012-3.575.07-4.841c.062-1.366.343-2.633 
+        1.318-3.608.975-.975 2.242-1.256 
+        3.608-1.318C8.416 2.175 8.796 2.163 
+        12 2.163M12 0C8.741 0 8.332.014 
+        7.052.072 5.773.131 4.672.354 
+        3.68 1.346 2.687 2.339 2.464 3.44 
+        2.405 4.719 2.347 5.999 2.333 
+        6.408 2.333 12s.014 6.001.072 
+        7.281c.059 1.279.282 2.38 1.274 
+        3.372.992.992 2.093 1.215 3.372 
+        1.274C8.332 23.986 8.741 24 
+        12 24s3.668-.014 4.948-.072c1.279-.059 
+        2.38-.282 3.372-1.274.992-.992 1.215-2.093 
+        1.274-3.372.058-1.28.072-1.689.072-7.281s-.014-6.001-.072-7.281c-.059-1.279-.282-2.38-1.274-3.372C19.328.354 
+        18.227.131 16.948.072 15.668.014 
+        15.259 0 12 0zm0 5.838a6.162 
+        6.162 0 1 0 0 12.324 6.162 
+        6.162 0 0 0 0-12.324zm0 
+        10.162a3.999 3.999 0 1 1 0-7.998 
+        3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 
+        1.44 0 1 1 0-2.881 1.44 
+        1.44 0 0 1 0 2.881z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
