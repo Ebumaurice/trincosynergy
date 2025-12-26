@@ -667,6 +667,27 @@ background: url("../images/lucas-kepner-Yn8D5B8C-eY-unsplash.jpg") no-repeat cen
     border: 2px solid #d4b100;
 }
 
+@media (max-width: 768px) {
+    .nigeria-map-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #map {
+        width: 100%;
+        height: 300px; /* REQUIRED for mobile */
+        min-height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .map-content {
+        width: 100%;
+        padding: 0 20px;
+        margin-top: 0;
+    }
+}
+
+
 
 
 /* ===========================
