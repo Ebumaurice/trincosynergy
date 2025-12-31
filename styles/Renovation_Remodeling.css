@@ -54,6 +54,41 @@ a {
     /* move 20px to the left */
 }
 
+/* Align logo + text horizontally */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* space between logo & name */
+}
+
+/* Company name beside logo */
+.company-name {
+    font-family: "Oswald", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    gap: 5px;
+    text-transform: uppercase;
+}
+
+/* TRINCO white */
+.company-name .trinco {
+    color: #fff;
+}
+
+/* SYNERGY theme yellow */
+.company-name .synergy {
+    color: #d4b100;
+}
+
+/* Responsive scaling */
+@media(max-width:768px) {
+    .company-name {
+        font-size: 22px;
+    }
+}
+
 
 .nav-links {
     list-style: none;
