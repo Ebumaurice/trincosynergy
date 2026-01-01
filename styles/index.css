@@ -329,6 +329,50 @@ background: url("../images/lucas-kepner-Yn8D5B8C-eY-unsplash.jpg") no-repeat cen
     }
 }
 
+/* HAMBURGER BUTTON */
+.menu-toggle {
+    display: none;
+    font-size: 32px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #111;
+        margin-top: 15px;
+        padding: 10px 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+    }
+}
+
+
 
 /* =============================== */
 /* SERVICES SECTION - INDUSTRIAL STYLE */

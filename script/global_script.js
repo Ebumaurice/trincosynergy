@@ -75,9 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* ===========================
-       ARCHITECTURAL LIGHTBOX
-    ============================ */
+    /* ===========================
+           ARCHITECTURAL LIGHTBOX
+        ============================ */
     const lightbox = document.getElementById("archLightbox");
     const mainImg = document.getElementById("lightboxMain");
     const caption = document.getElementById("lightboxCaption");
@@ -152,20 +152,20 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ===========================
    LIGHTBOX ARROW CONTROLS
 =========================== */
-const prevBtn = document.querySelector(".lightbox-nav.prev");
-const nextBtn = document.querySelector(".lightbox-nav.next");
+    const prevBtn = document.querySelector(".lightbox-nav.prev");
+    const nextBtn = document.querySelector(".lightbox-nav.next");
 
-prevBtn.addEventListener("click", e => {
-    e.stopPropagation();
-    index = (index - 1 + images.length) % images.length;
-    updateMain();
-});
+    prevBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        index = (index - 1 + images.length) % images.length;
+        updateMain();
+    });
 
-nextBtn.addEventListener("click", e => {
-    e.stopPropagation();
-    index = (index + 1) % images.length;
-    updateMain();
-});
+    nextBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        index = (index + 1) % images.length;
+        updateMain();
+    });
 
 
 
@@ -281,6 +281,13 @@ nextBtn.addEventListener("click", e => {
         }
 
         requestAnimationFrame(update);
+    });
+
+    const toggleBtn = document.getElementById("menuToggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
     });
 
 }); // End DOMContentLoaded
