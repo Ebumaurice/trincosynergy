@@ -22,6 +22,9 @@
                     </span>
                 </a>
             </div>
+             <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../Web_Pages/About_Us.html">About Us</a></li>
@@ -495,6 +498,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll); // Trigger on page load
+
+
+         //Hamburrger icon
+    const toggleBtn = document.getElementById("menuToggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+    });
+    
     </script>
 </body>
 

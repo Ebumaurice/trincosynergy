@@ -283,6 +283,8 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(update);
     });
 
+
+    //Hamburrger icon
     const toggleBtn = document.getElementById("menuToggle");
     const navLinks = document.querySelector(".nav-links");
 

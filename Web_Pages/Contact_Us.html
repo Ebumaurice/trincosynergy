@@ -21,6 +21,9 @@
                     </span>
                 </a>
             </div>
+            <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../Web_Pages/About_Us.html">About Us</a></li>
@@ -206,6 +209,14 @@ document.getElementById('mapBox').addEventListener('click', function () {
 document.getElementById('mapBox').addEventListener('mouseleave', function () {
     this.classList.remove('active');
 });
+
+             //Hamburrger icon
+    const toggleBtn = document.getElementById("menuToggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+    });
 </script>
 </body>
 

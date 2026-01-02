@@ -146,6 +146,49 @@ a {
     }
 }
 
+
+/*navbar forr mobile display*/
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-left: 0;
+    }
+
+    .logo img {
+        height: 60px; /* scale logo */
+    }
+
+    .company-name {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        width: 100%;
+        margin-top: 15px;
+        align-items: flex-start;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 15px;
+    }
+}
+
 /* =============================== */
 /* HERO SECTION - INDUSTRIAL STYLE */
 /* =============================== */
@@ -239,6 +282,102 @@ a {
     position: relative;
     z-index: 5;
 }
+
+/*hero forr mobile display*/
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+              
+    }
+
+    .logo {
+        margin-left: 0;
+    }
+
+    .logo img {
+        height: 60px; /* scale logo */
+    }
+
+    .company-name {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        width: 100%;
+        margin-top: 15px;
+        align-items: flex-start;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero::after {
+        display: none;
+    }
+}
+
+/* HAMBURGER BUTTON */
+.menu-toggle {
+    display: none;
+    font-size: 32px;
+    font-weight: 900;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+      
+        margin-left: auto;
+        padding-right: 30px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #111;
+        margin-top: 15px;
+        padding: 10px 0;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+    }
+}
+
 
 
 /* ===================== ABOUT HISTORY ===================== */
@@ -955,5 +1094,60 @@ a {
 
     .social-icons {
         justify-content: center;
+    }
+}
+
+/* =========================
+   GLOBAL MOBILE ADJUSTMENTS
+========================= */
+@media (max-width: 768px) {
+    body, html {
+        font-size: 14px; /* slightly smaller base font */
+    }
+
+    /* NAVBAR */
+    .navbar {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-left: 0;
+        display: none; /* hamburger menu can toggle display */
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .hero-content h1.top {
+        font-size: 36px;
+    }
+
+    .hero-content h1.build {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+
+    /* FOOTER */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
     }
 }

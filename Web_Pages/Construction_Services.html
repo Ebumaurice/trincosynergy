@@ -22,6 +22,9 @@
                     </span>
                 </a>
             </div>
+               <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../Web_Pages/About_Us.html">About Us</a></li>
@@ -142,31 +145,15 @@
         </div>
     </footer>
     <script>
-    // Scroll Fade Animation
-    const revealElements = document.querySelectorAll(".reveal");
-    const revealOnScroll = () => {
-        revealElements.forEach((el,i)=>{
-            let windowHeight = window.innerHeight;
-            let top = el.getBoundingClientRect().top;
-            if(top < windowHeight - 100){
-                setTimeout(()=>{ el.classList.add("active") }, i*120);
-            }
-        })
-    }
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
+             //Hamburrger icon
+    const toggleBtn = document.getElementById("menuToggle");
+    const navLinks = document.querySelector(".nav-links");
 
-    // Lightbox
-    const imgs = document.querySelectorAll(".img-lightbox");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const close = document.getElementById("close-lightbox");
-
-    imgs.forEach(img=>{
-        img.onclick = ()=>{ lightboxImg.src=img.src; lightbox.style.display="flex"; }
-    })
-    close.onclick = ()=>{ lightbox.style.display="none"; }
-</script>
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+    });
+    
+    </script>
 
 </body>
 

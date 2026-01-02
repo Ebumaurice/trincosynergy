@@ -292,6 +292,7 @@ background: url("../images/lucas-kepner-Yn8D5B8C-eY-unsplash.jpg") no-repeat cen
     .nav-container {
         flex-direction: column;
         align-items: flex-start;
+              
     }
 
     .logo {
@@ -333,10 +334,12 @@ background: url("../images/lucas-kepner-Yn8D5B8C-eY-unsplash.jpg") no-repeat cen
 .menu-toggle {
     display: none;
     font-size: 32px;
+    font-weight: 900;
     background: none;
     border: none;
     color: #fff;
     cursor: pointer;
+
 }
 
 /* MOBILE VIEW */
@@ -344,7 +347,9 @@ background: url("../images/lucas-kepner-Yn8D5B8C-eY-unsplash.jpg") no-repeat cen
 
     .menu-toggle {
         display: block;
+      
         margin-left: auto;
+        padding-right: 30px;
     }
 
     .nav-links {

@@ -21,6 +21,9 @@
                     </span>
                 </a>
             </div>
+              <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../Web_Pages/About_Us.html">About Us</a></li>
@@ -141,18 +144,16 @@
         </div>
     </footer>
 
-<script>
-const scrollElements = document.querySelectorAll(".fade-in, .fade-in-up, .slide-up");
+    <script>
+             //Hamburrger icon
+    const toggleBtn = document.getElementById("menuToggle");
+    const navLinks = document.querySelector(".nav-links");
 
-function revealOnScroll() {
-    scrollElements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 120) el.classList.add("visible");
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
     });
-}
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-</script>
+    
+    </script>
 
 </body>
 
