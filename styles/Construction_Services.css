@@ -382,7 +382,7 @@ a {
 .construction-services {
     padding: 100px 60px;
     background: #fff;
-    border-top: 3px solid #d4b100;
+    
 }
 
 .services-header {
@@ -391,7 +391,7 @@ a {
 }
 
 .services-header .section-subtitle {
-    font-size: 14px;
+    font-size: 35px;
     font-weight: 800;
     text-transform: uppercase;
     color: #d4b100;
@@ -410,27 +410,78 @@ a {
 /* SERVICE ROW */
 .service-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 60px;
     align-items: center;
-    margin-bottom: 90px;
+    margin-bottom: 120px;
+
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+.service-row.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* Reverse layout */
 .service-row.reverse {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
 }
+
+/* Gold divider */
+.service-row::after {
+    margin-bottom: -50px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+       height: 6px;
+    width: 1130px;
+    left: 0;
+    background: #d4b100;
+    opacity: 0.6;
+}
+
+/* Remove divider on last service */
+.service-row:last-child::after {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .service-row {
+        padding: 60px 0;
+    }
+
+    .service-row::after {
+        left: 15%;
+        width: 70%;
+    }
+}
+
+
+.service-content {
+    background: #0d0d0d;
+    border-left: 5px solid #d4b100;
+    padding: 50px 50px 55px;
+    position: relative;
+
+    transition-delay: 0.3s;
+}
+
 
 /* TEXT */
 .service-content h3 {
     font-family: "Oswald", sans-serif;
-    font-size: 32px;
+    font-size: 2.4rem;
     font-weight: 900;
     text-transform: uppercase;
+    color: #fff;
     margin-bottom: 20px;
     position: relative;
-    color: #0c0c0c;
 }
+
 
 .service-content h3::before {
     content: "";
@@ -441,44 +492,76 @@ a {
     margin-bottom: 20px;
 }
 
+.service-content h3::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #d4b100;
+    margin-top: 12px;
+}
+
+
 .service-content p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: #111;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #cfcfcf;
     max-width: 520px;
 }
 
+
 /* IMAGE */
 .service-image {
+    position: relative;
     overflow: hidden;
-    border: 1px solid #111;
+    border: 2px none #1c1c1c;
 }
+
 
 .service-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    filter: grayscale(20%) contrast(1.1);
+    transition: transform 0.5s ease;
 }
 
-.service-image:hover img {
-    transform: scale(1.05);
+.service-row:hover .service-image img {
+    transform: scale(1.04);
 }
+
+
 
 .service-lead {
+    font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    color: #d4b100;
+    margin-bottom: 15px;
 }
 
+
 .service-points {
-    margin-top: 20px;
-    padding-left: 18px;
-    color: #000;
+    margin-top: 30px;
+    padding-left: 0;
+    list-style: none;
 }
 
 .service-points li {
-    margin-bottom: 8px;
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
     font-size: 0.95rem;
+    color: #e0e0e0;
+}
+
+.service-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: #d4b100;
 }
 
 
@@ -515,6 +598,137 @@ a {
     }
 }
 
+
+
+/* =============================== */
+/* CONTACT SECTION - INDUSTRIAL THEME */
+/* =============================== */
+.contact-section {
+    margin-top: -70px;
+    
+    display: flex;
+    gap: 60px;
+    padding: 80px 60px;
+    background: #111;
+    color: #fff;
+}
+
+.contact-left {
+    flex: 0 0 60%; /* 60% width */
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out;
+}
+
+.contact-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-right {
+    padding-top: 95px;
+    flex: 0 0 40%; /* 40% width */
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease-out;
+}
+
+.contact-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Header in left section */
+.contact-pretitle {
+    padding-top: 150px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.contact-left h2, .contact-right h2 {
+    font-family: "Oswald", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #d4b100;
+    margin-bottom: 30px;
+}
+
+/* Form styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: 2px solid #2c2c2c;
+    background: #0d0d0d;
+    color: #fff;
+    border-radius: 0;
+    font-family: "Montserrat", sans-serif;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #d4b100;
+}
+
+/* Button same as hero style */
+.contact-btn {
+    padding: 18px 40px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #111;
+    background: #d4b100;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #fff;
+    color: #111;
+    transform: translateY(-3px);
+    border: 2px solid #d4b100;
+}
+
+/* Right section content */
+.contact-right p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+/* Responsive */
+@media(max-width: 1024px) {
+    .contact-section {
+        flex-direction: column;
+        gap: 40px;
+        padding: 60px 30px;
+    }
+
+    .contact-left,
+    .contact-right {
+        flex: 1 1 100%;
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 
 /* =============================== */
