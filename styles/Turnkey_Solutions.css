@@ -378,6 +378,261 @@ a {
 }
 
 
+/* ===============================
+   TURNKEY OVERVIEW (WITH IMAGE)
+================================ */
+.turnkey-overview {
+    background: #fff;
+    padding: 50px 8%;
+}
+
+.overview-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 70px;
+    align-items: center;
+}
+
+/* Text */
+.overview-text .section-subtitle {
+    color: #d4b100;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+
+.overview-text .section-title {
+    font-size: 2rem;
+    font-family: "Oswald", sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #111;
+}
+
+.overview-text p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #333;
+    max-width: 520px;
+}
+
+/* Image */
+.overview-image {
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid #d4b100;
+}
+
+.overview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%) contrast(1.05);
+}
+
+.turnkey-scope {
+    background: #0c0c0c;
+    color: #fff;
+    padding: 40px 8%;
+    border-top: 3px solid #d4b100;
+}
+
+.turnkey-heading {
+    font-family: "Oswald", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.scope-grid div {
+    border: 1px solid #d4b100;
+    padding: 25px;
+    font-weight: 600;
+}
+
+
+.turnkey-process {
+    padding: 50px 8%;
+    background: #0c0c0c;
+}
+
+.process-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.process-step span {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #d4b100;
+}
+
+.process-step h4 {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.turnkey-why {
+    background: #0c0c0c;
+    color: #fff;
+    padding: 10px 8%;
+}
+
+.why-list {
+    list-style: none;
+    padding: 0;
+}
+
+.why-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+.turnkey-projects {
+    padding: 40px 8%;
+    background: #0c0c0c;
+    padding-bottom: 120px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.projects-grid div {
+    border: 2px solid #d4b100;
+    padding: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .overview-wrap {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .overview-image {
+        order: -1; /* image first on mobile */
+       
+    }
+
+    .overview-text .section-title {
+        font-size: 2.2rem;
+    }
+
+    .overview-text p {
+        max-width: 100%;
+    }
+}
+
+
+/* ===============================
+   SERVICES CTA SECTION
+================================ */
+.services-cta {
+    background: #0c0c0c;
+    border-top: 3px solid #d4b100;
+    padding: 90px 8%;
+}
+
+.cta-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.cta-box {
+    flex: 1;
+}
+
+.cta-box h3 {
+    font-family: "Oswald", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #bfbfbf;
+    margin-bottom: 30px;
+    max-width: 420px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* Button styles */
+.cta-btn.solid {
+    background: #d4b100;
+    color: #111;
+}
+
+.cta-btn.solid:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+.cta-btn.outline {
+    border: 2px solid #d4b100;
+    color: #d4b100;
+}
+
+.cta-btn.outline:hover {
+    background: #d4b100;
+    color: #111;
+    transform: translateY(-3px);
+}
+
+/* Vertical divider */
+.cta-divider {
+    width: 1px;
+    background: #d4b100;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .cta-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .cta-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .cta-box p {
+        max-width: 100%;
+    }
+}
 
 
 /* =============================== */
@@ -521,5 +776,104 @@ a {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* ===============================
+       GLOBAL SAFETY
+    =============================== */
+    html, body {
+        overflow-x: hidden;
+    }
+
+    section {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    /* ===============================
+       TURNKEY SCOPE
+    =============================== */
+    .turnkey-scope {
+        padding: 40px 6%;
+    }
+
+    .turnkey-heading {
+        font-size: 1.9rem;
+        margin-bottom: 30px;
+    }
+
+    .scope-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .scope-grid div {
+        padding: 20px;
+        font-size: 0.95rem;
+    }
+
+    /* ===============================
+       TURNKEY PROCESS
+    =============================== */
+    .turnkey-process {
+        padding: 40px 6%;
+    }
+
+    .process-row {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .process-step span {
+        font-size: 1.7rem;
+    }
+
+    .process-step h4 {
+        font-size: 1.1rem;
+    }
+
+    /* ===============================
+       WHY TURNKEY
+    =============================== */
+    .turnkey-why {
+        padding: 30px 6%;
+    }
+
+    .why-list li {
+        padding: 12px 0;
+        font-size: 0.95rem;
+    }
+
+    /* ===============================
+       PROJECTS GRID
+    =============================== */
+    .turnkey-projects {
+        padding: 40px 6% 80px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .projects-grid div {
+        padding: 22px;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+}
+
+  /* ===============================
+       tablet
+    =============================== */
+
+@media (max-width: 1024px) {
+    .scope-grid,
+    .process-row,
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

@@ -141,29 +141,35 @@
 
     </section>
 
-    <section class="contact-section">
-        <div class="contact-left">
-            <div class="contact-header">
-                <div class="contact-pretitle">Contact Us</div>
-                <h2>Do You Have any Questions?</h2>
+    <section class="services-cta">
+
+        <div class="cta-wrapper">
+
+            <div class="cta-box">
+                <h3>See Our Built Projects</h3>
+                <p>
+                    Explore completed residential, commercial, and institutional projects
+                    delivered with precision and professionalism.
+                </p>
+                <a href="Projects.html" class="cta-btn outline">View Projects</a>
             </div>
 
-            <form class="contact-form">
-                <input type="text" name="fullname" placeholder="Full Name" required>
-                <input type="tel" name="phone" placeholder="Phone" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <textarea name="message" placeholder="Message" rows="5" required></textarea>
-                <button type="submit" class="contact-btn">Send Message</button>
-            </form>
+            <div class="cta-divider"></div>
+
+            <div class="cta-box">
+                <h3>Planning a Project?</h3>
+                <p>
+                    Talk to our team about your construction needs and get expert guidance
+                    from concept to completion.
+                </p>
+                <a href="Contact_Us.html" class="cta-btn solid">Contact Us</a>
+            </div>
+
         </div>
 
-        <div class="contact-right">
-            <h2>Are You Going<br> to Implement Project?</h2>
-            <p><strong>Address:</strong> 2047 Cyrus Viaduct, East Jadynchester</p>
-            <p><strong>Email:</strong> info@construct.com<br>support@construct.com</p>
-            <p><strong>Phone:</strong> 1 - 313 - 645 - 3395<br>1 - 469 - 970 - 2609</p>
-        </div>
     </section>
+
+
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -267,27 +273,6 @@
         </div>
     </footer>
     <script>
-
-        // ===========================
-        //  Animate contact section on scroll
-        // ==========================
-
-        const contactLeft = document.querySelector('.contact-left');
-        const contactRight = document.querySelector('.contact-right');
-
-        function revealOnScroll() {
-            const triggerBottom = window.innerHeight * 0.85;
-
-            [contactLeft, contactRight].forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-
-                if (sectionTop < triggerBottom) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll); // Trigger on page load
         //Hamburrger icon
         const toggleBtn = document.getElementById("menuToggle");
         const navLinks = document.querySelector(".nav-links");
