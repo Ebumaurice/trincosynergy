@@ -386,10 +386,57 @@ a {
     margin-bottom: 40px;
 }
 
+
+/* ===================== OVERVIEW TEXT ===================== */
+.reno-overview-text {
+    position: relative;
+    padding-left: 28px;
+}
+
+/* Vertical accent line */
+.reno-overview-text::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 4px;
+    height: 90%;
+    background: #d4b100;
+}
+
+/* Subtitle */
 .section-subtitle {
-    color: #d4b100;
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+      color: #d4b100;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+/* Title */
+.section-title {
+    font-family: "Oswald", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 26px;
+    text-transform: uppercase;
+}
+
+/* Body text */
+.reno-overview-text p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #cfcfcf;
+    margin-bottom: 18px;
+    max-width: 520px;
+}
+
+/* Last paragraph spacing fix */
+.reno-overview-text p:last-child {
+    margin-bottom: 0;
 }
 
 /* ===================== OVERVIEW ===================== */
@@ -532,6 +579,57 @@ a {
 .arch-card-info h3{
     color: #d4b100;
 }
+
+/* ===================== MOBILE OPTIMIZATION ===================== */
+@media (max-width: 768px) {
+
+    /* Section spacing */
+    .reno-transform {
+        padding: 60px 6%;
+    }
+
+    /* Stack cards vertically */
+    .arch-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* Make cards taller for better image visibility */
+    .arch-card {
+        height: 320px;
+    }
+
+    /* BEFORE / AFTER label positioning */
+    .arch-card-info {
+        bottom: 18px;
+        left: 18px;
+    }
+
+    .arch-card-info h3 {
+        font-size: 1.25rem;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* Extra-small devices (phones) */
+@media (max-width: 480px) {
+
+    .reno-transform {
+        padding: 50px 5%;
+    }
+
+    .arch-card {
+        height: 360px;
+    }
+
+    .arch-card-info h3 {
+        font-size: 1.1rem;
+        letter-spacing: 1.2px;
+    }
+}
+
+
+
 /* ===========================
    LIGHTBOX
 =========================== */
@@ -636,35 +734,98 @@ a {
 
 
 /* ===================== CTA ===================== */
-.reno-cta {
-    padding: 100px 8%;
+
+.services-cta {
+    margin-top: 40px;
     background: #0c0c0c;
-    text-align: center;
+    border-top: 3px solid #d4b100;
+    padding: 90px 8%;
 }
 
-.cta-buttons {
+.cta-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.cta-box {
+    flex: 1;
+}
+
+.cta-box h3 {
+    font-family: "Oswald", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #bfbfbf;
+    margin-bottom: 30px;
+    max-width: 420px;
 }
 
 .cta-btn {
-    padding: 18px 45px;
+    display: inline-block;
+    padding: 16px 40px;
     font-family: "Oswald", sans-serif;
-    text-transform: uppercase;
     font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
-.cta-btn.primary {
+/* Button styles */
+.cta-btn.solid {
     background: #d4b100;
     color: #111;
 }
 
-.cta-btn.secondary {
+.cta-btn.solid:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+.cta-btn.outline {
     border: 2px solid #d4b100;
     color: #d4b100;
 }
+
+.cta-btn.outline:hover {
+    background: #d4b100;
+    color: #111;
+    transform: translateY(-3px);
+}
+
+/* Vertical divider */
+.cta-divider {
+    width: 1px;
+    background: #d4b100;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .cta-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .cta-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .cta-box p {
+        max-width: 100%;
+    }
+}
+
 
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
