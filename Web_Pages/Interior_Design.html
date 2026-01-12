@@ -14,18 +14,18 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                 <a href="../index.html" class="logo">
+                <a href="../index.html" class="logo">
                     <img src="../images/Circular logo.png" alt="Logo">
                     <span class="company-name">
                         <span class="trinco">TRINCO</span> <span class="synergy">SYNERGY</span>
                     </span>
                 </a>
             </div>
-              <button class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle">
                 ☰
             </button>
             <ul class="nav-links">
-             <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="../Web_Pages/About_Us.html">About Us</a></li>
                 <!--<li><a href="services.html">Services</a></li>-->
                 <li><a href="../Web_Pages/Projects.html">Projects</a></li>
@@ -42,8 +42,244 @@
     </section>
 
 
+    <!-- ===================== INTERIOR OVERVIEW ===================== -->
+    <section class="interior-overview reveal">
+        <div class="interior-text">
+            <span class="section-subtitle">Interior Design</span>
+            <h2 class="section-title">Designing Interiors That Shape Experience</h2>
 
-       <!-- Footer Section -->
+            <p>
+                Interior design goes beyond surface aesthetics. It is the deliberate
+                organization of space, movement, light, and material to support how
+                people live, work, and interact with their environment.
+            </p>
+
+            <p>
+                At Trinco Synergy, our approach is grounded in architectural logic
+                and human experience — creating interiors that are refined,
+                functional, and enduring.
+            </p>
+        </div>
+
+        <div class="interior-image reveal-right">
+            <img src="../images/Nigerian-Minimalism-design.webp" alt="Interior Design Project">
+        </div>
+    </section>
+
+    <!-- ===================== DESIGN APPROACH ===================== -->
+    <section class="interior-approach">
+        <h3 class="section-heading reveal">Our Design Approach</h3>
+
+        <div class="approach-grid">
+            <div class="approach-card reveal">
+                <h4>01 — Spatial Analysis</h4>
+                <p>
+                    Understanding the space, constraints, and user needs to define
+                    a clear interior strategy.
+                </p>
+            </div>
+
+            <div class="approach-card reveal">
+                <h4>02 — Concept & Strategy</h4>
+                <p>
+                    Developing concepts through spatial logic, material balance,
+                    and atmosphere — not trends.
+                </p>
+            </div>
+
+            <div class="approach-card reveal">
+                <h4>03 — Design Development</h4>
+                <p>
+                    Refining layouts, finishes, lighting, and details with
+                    technical accuracy.
+                </p>
+            </div>
+
+            <div class="approach-card reveal">
+                <h4>04 — Visualization & Documentation</h4>
+                <p>
+                    Producing drawings and visuals that clearly communicate
+                    design intent.
+                </p>
+            </div>
+
+            <div class="approach-card reveal">
+                <h4>05 — Execution Coordination</h4>
+                <p>
+                    Collaborating with contractors to ensure the interior is
+                    delivered as designed.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SCROLL ANIMATION SCRIPT ===================== -->
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+        document.querySelectorAll(".reveal-right").forEach(el => observer.observe(el));
+    </script>
+
+
+
+
+    <section class="interior-gallery">
+         <h3 class="section-heading">Some of our setups</h3>
+
+        <div class="gallery-wrapper">
+
+            <button class="gallery-arrow left" aria-label="Previous">&#10094;</button>
+
+            <div class="gallery-viewport">
+                <div class="gallery-track">
+                    <div class="gallery-slide"><img src="../images/interior3.jpg" alt=""></div>
+                    <div class="gallery-slide active"><img src="../images/interiorr1.jpg" alt=""></div>
+                    <div class="gallery-slide"><img src="../images/interior3.jpg" alt=""></div>
+                    <div class="gallery-slide"><img src="../images/interiorr1.jpg" alt=""></div>
+                    <div class="gallery-slide"><img src="../images/interior2.jpg" alt=""></div>
+                </div>
+            </div>
+
+            <button class="gallery-arrow right" aria-label="Next">&#10095;</button>
+
+        </div>
+
+    </section>
+    <script>
+        const track = document.querySelector(".gallery-track");
+        let slides = Array.from(document.querySelectorAll(".gallery-slide"));
+        const nextBtn = document.querySelector(".gallery-arrow.right");
+        const prevBtn = document.querySelector(".gallery-arrow.left");
+
+        const slideGap = 40;
+        let slideWidth = slides[0].offsetWidth + slideGap;
+        let isMoving = false;
+        let centerIndex = 1;
+
+        // Helper: update classes for center + adjacent slides
+        function updateClasses() {
+            slides.forEach(slide => {
+                slide.classList.remove("active", "prev", "next");
+            });
+
+            slides[centerIndex].classList.add("active");
+
+            if (centerIndex > 0) slides[centerIndex - 1].classList.add("prev");
+            if (centerIndex < slides.length - 1) slides[centerIndex + 1].classList.add("next");
+        }
+
+        // Move track to center
+        function moveTrack(transition = true) {
+            if (transition) {
+                track.style.transition = "transform 0.6s cubic-bezier(0.4,0,0.2,1)";
+            } else {
+                track.style.transition = "none";
+            }
+            const offset = -centerIndex * slideWidth + slideWidth;
+            track.style.transform = `translateX(${offset}px)`;
+        }
+
+        // Next slide
+        nextBtn.addEventListener("click", () => {
+            if (isMoving) return;
+            isMoving = true;
+
+            centerIndex++;
+            moveTrack();
+            updateClasses();
+
+            track.addEventListener("transitionend", () => {
+                // Loop: recycle first slide
+                if (centerIndex >= slides.length - 1) {
+                    track.style.transition = "none";
+                    const first = slides.shift();
+                    track.appendChild(first);
+                    slides.push(first);
+                    centerIndex--;
+                    moveTrack(false);
+                    updateClasses();
+                }
+                isMoving = false;
+            }, { once: true });
+        });
+
+        // Prev slide
+        prevBtn.addEventListener("click", () => {
+            if (isMoving) return;
+            isMoving = true;
+
+            centerIndex--;
+            moveTrack();
+            updateClasses();
+
+            track.addEventListener("transitionend", () => {
+                // Loop: recycle last slide
+                if (centerIndex <= 0) {
+                    track.style.transition = "none";
+                    const last = slides.pop();
+                    track.insertBefore(last, slides[0]);
+                    slides.unshift(last);
+                    centerIndex++;
+                    moveTrack(false);
+                    updateClasses();
+                }
+                isMoving = false;
+            }, { once: true });
+        });
+
+        // Initial setup
+        updateClasses();
+        moveTrack(false);
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+            slideWidth = slides[0].offsetWidth + slideGap;
+            moveTrack(false);
+        });
+    </script>
+
+
+ <!-- ===================== CTA ===================== -->
+
+    <section class="services-cta">
+
+        <div class="cta-wrapper">
+
+            <div class="cta-box">
+                <h3>See Our Built Projects</h3>
+                <p>
+                    Explore completed residential, commercial, and institutional projects
+                    delivered with precision and professionalism.
+                </p>
+                <a href="Projects.html" class="cta-btn outline">View Projects</a>
+            </div>
+
+            <div class="cta-divider"></div>
+
+            <div class="cta-box">
+                <h3>Planning to Renovate?</h3>
+                <p>
+                    Talk to our team about your construction needs and get expert guidance
+                    from concept to completion.
+                </p>
+                <a href="Contact_Us.html" class="cta-btn solid">Contact Us</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+    <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-container">
             <!-- Column 1: Logo -->
@@ -145,15 +381,15 @@
         </div>
     </footer>
 
-        <script>
-             //Hamburrger icon
-    const toggleBtn = document.getElementById("menuToggle");
-    const navLinks = document.querySelector(".nav-links");
+    <script>
+        //Hamburrger icon
+        const toggleBtn = document.getElementById("menuToggle");
+        const navLinks = document.querySelector(".nav-links");
 
-    toggleBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-    });
-    
+        toggleBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+
     </script>
 </body>
 
