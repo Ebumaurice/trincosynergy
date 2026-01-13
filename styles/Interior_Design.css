@@ -400,7 +400,7 @@ a {
     position: relative;
     padding-left: 30px;
     text-transform: uppercase;
-    color: #d4b100;
+    color: #A2871B;
 }
 
 .interior-text::before {
@@ -443,13 +443,13 @@ a {
     padding: 60px 8%;
     background: #f9f9f9;
 }
-.section-heading{
-   font-family: "Oswald", sans-serif;
+.section-heading {
+    font-family: "Oswald", sans-serif;
     font-size: 2.3rem;
     font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 40px;
-    color: #0c0c0c;
+    margin-bottom: 80px;
+    color: #A2871B;
 }
 
 .approach-grid {
@@ -536,15 +536,6 @@ a {
     background: #0c0c0c;
     color: #fff;
     overflow: hidden;
-}
-
-.section-heading {
-    font-family: "Oswald", sans-serif;
-    font-size: 2.3rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 80px;
-    color: #d4b100;
 }
 
 

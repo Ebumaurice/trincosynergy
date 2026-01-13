@@ -430,10 +430,11 @@ a {
 
 .section-label {
     display: inline-block;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-weight: 900;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #d4b100;
+    color: #A2871B;
     margin-bottom: 15px;
 }
 
@@ -537,10 +538,11 @@ a {
 .services-header .section-tag {
     display: inline-block;
     font-family: "Oswald", sans-serif;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
+    font-weight: 900;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #d4b100;
+    color: #A2871B;
     margin-bottom: 12px;
 }
 
@@ -654,16 +656,29 @@ a {
     font-weight: 900;
     text-transform: uppercase;
 }
+.highlight-word {
+    color: #A2871B;
+}
 
 .section-title {
     margin-top: -10px;
-    color: #0c0c0c;
+    color: #A2871B;
     font-family: "Oswald", sans-serif;
     font-size: 45px;
     font-weight: 900;
     text-transform: uppercase;
     max-width: 700px;
 }
+
+.arch-description {
+    margin-top: 20px;
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #0c0c0c;
+    font-weight: 500;
+}
+
 
 /* Grid */
 .arch-row {
@@ -1143,6 +1158,7 @@ a {
     font-weight: 900;
     color: white;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .contact-left h2, .contact-right h2 {
