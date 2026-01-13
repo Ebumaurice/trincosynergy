@@ -789,6 +789,7 @@ a {
 
 .cta-btn.solid:hover {
     background: #fff;
+    border: 2px solid #d4b100;
     transform: translateY(-3px);
 }
 
@@ -798,7 +799,8 @@ a {
 }
 
 .cta-btn.outline:hover {
-    background: #d4b100;
+    background: #fff;
+    border: 2px solid #d4b100;
     color: #111;
     transform: translateY(-3px);
 }
