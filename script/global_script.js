@@ -292,4 +292,81 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.toggle("show");
     });
 
+
+    //Contact Us Business Logic
+
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Honeypot spam protection
+        if (form.company && form.company.value !== "") {
+            return;
+        }
+
+        const data = {
+            fullName: form.fullName.value.trim(),
+            email: form.email.value.trim(),
+            message: `
+                Full Name: ${form.fullName.value.trim()}
+                Phone Number: ${form.phone.value.trim()}
+                Email: ${form.email.value.trim()}
+
+                Message:
+                ${form.message.value.trim()}`
+        };
+
+
+        if (!data.fullName || !data.email || !data.message) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
+        const btn = form.querySelector(".contact-btn");
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+
+        emailjs.send(
+            "service_8e61y9l",
+            "template_n8kn299",
+            data
+        )
+            .then(() => {
+                alert("Message sent successfully!");
+                form.reset();
+            })
+            .catch((error) => {
+                console.error("EmailJS Error:", error);
+                alert("Failed to send message. Please try again.");
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.textContent = "Send Message";
+            });
+    });
+
+    (function () {
+        emailjs.init("eD1IL2bHc58RV8VRc");
+    })();
+
+    const backToTop = document.getElementById("backToTop");
+
+    // Show button after scrolling
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
+    });
+
+    // Scroll to top
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
 }); // End DOMContentLoaded

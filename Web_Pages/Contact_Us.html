@@ -14,7 +14,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-               <a href="../index.html" class="logo">
+                <a href="../index.html" class="logo">
                     <img src="../images/Circular logo.png" alt="Logo">
                     <span class="company-name">
                         <span class="trinco">TRINCO</span> <span class="synergy">SYNERGY</span>
@@ -49,20 +49,23 @@
             <span class="contact-tag">Contact Us</span>
             <h2>Do You Have Any Questions?</h2>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contactForm">
 
                 <div class="form-grid">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="tel" placeholder="Phone Number" required>
+                    <input type="text" name="fullName" id="fullName" placeholder="Full Name" required>
+                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
                 </div>
 
-                <input type="email" placeholder="Email Address" required>
+                <input type="email" name="email" id="email" placeholder="Email Address" required>
 
-                <textarea placeholder="Your Message..." required></textarea>
+                <textarea name="message" id="message" placeholder="Your Message..." required></textarea>
 
-                <button type="submit" class="contact-btn">Send Message</button>
+                <button type="submit" class="contact-btn">
+                    <span class="btn-text">Send Message</span>
+                </button>
 
             </form>
+
         </div>
 
         <!-- RIGHT: CONTACT INFORMATION -->
@@ -93,9 +96,9 @@
     <!-- ===================== GOOGLE MAP SECTION ===================== -->
 
     <section class="map-container" id="mapBox">
-    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1xqkQFFKFHKvEFQ-euSgaE_1gl588rJ4&ehbc=2E312F&noprof=1"
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1xqkQFFKFHKvEFQ-euSgaE_1gl588rJ4&ehbc=2E312F&noprof=1"
             width="640" height="480"></iframe>
-</section>
+    </section>
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -110,19 +113,19 @@
             <!-- Column 2: Services -->
             <div class="footer-column">
                 <h2>Our Services</h2>
-                  <a href="../Web_Pages/Drawing_Design_Documentation.html" >
+                <a href="../Web_Pages/Drawing_Design_Documentation.html">
                     <h3>Drawing, Design & Documentation</h3>
                 </a>
-                <a href="../Web_Pages/Construction_Services.html" >
+                <a href="../Web_Pages/Construction_Services.html">
                     <h3>Construction Services</h3>
                 </a>
-                <a href="../Web_Pages/Turnkey_Solutions.html" >
+                <a href="../Web_Pages/Turnkey_Solutions.html">
                     <h3>Turnkey Solutions</h3>
                 </a>
-                <a href="../Web_Pages/Renovation_Remodeling.html" >
+                <a href="../Web_Pages/Renovation_Remodeling.html">
                     <h3>Renovation & Remodeling</h3>
                 </a>
-                <a href="../Web_Pages/Interior_Design.html" >
+                <a href="../Web_Pages/Interior_Design.html">
                     <h3>Interior Design</h3>
                 </a>
             </div>
@@ -151,7 +154,7 @@
                     </svg>
                 </a>
 
-                  <!-- TikTok -->
+                <!-- TikTok -->
                 <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                         viewBox="0 0 24 24">
@@ -200,32 +203,127 @@
         </div>
     </footer>
 
-<script>
-// Enable map only on click
-document.getElementById('mapBox').addEventListener('click', function () {
-    this.classList.add('active');
-});
+      <!-- Back to Top Button -->
+  <div id="backToTop" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M12 5L5 12H9V19H15V12H19L12 5Z" fill="currentColor" />
+    </svg>
+  </div>
 
-// Disable again when cursor leaves the area
-document.getElementById('mapBox').addEventListener('mouseleave', function () {
-    this.classList.remove('active');
-});
+  <!-- WhatsApp Contact Button -->
+  <a href="https://wa.me/+2348067863688" target="_blank" rel="noopener" id="whatsappBtn" aria-label="Chat on WhatsApp">
+    <img src="../Icons/whatsapp.png" alt="whatsapp" />
+  </a>
 
- // ===========================
-    //  Footer Current Year
-    // ===========================
-    const currentYear = new Date().getFullYear();
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = currentYear;
+      <script>
+        const backToTop = document.getElementById("backToTop");
 
-             //Hamburrger icon
-    const toggleBtn = document.getElementById("menuToggle");
-    const navLinks = document.querySelector(".nav-links");
+        // Show button after scrolling
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        });
 
-    toggleBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-    });
-</script>
+        // Scroll to top
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+    
+    <script>
+        // Enable map only on click
+        document.getElementById('mapBox').addEventListener('click', function () {
+            this.classList.add('active');
+        });
+
+        // Disable again when cursor leaves the area
+        document.getElementById('mapBox').addEventListener('mouseleave', function () {
+            this.classList.remove('active');
+        });
+
+        // ===========================
+        //  Footer Current Year
+        // ===========================
+        const currentYear = new Date().getFullYear();
+        const yearEl = document.getElementById("year");
+        if (yearEl) yearEl.textContent = currentYear;
+
+        //Hamburrger icon
+        const toggleBtn = document.getElementById("menuToggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        toggleBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+    </script>
+    <script>
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Honeypot spam protection
+            if (form.company && form.company.value !== "") {
+                return;
+            }
+
+            const data = {
+                fullName: form.fullName.value.trim(),
+                email: form.email.value.trim(),
+                message: `
+Full Name: ${form.fullName.value.trim()}
+Phone Number: ${form.phone.value.trim()}
+Email: ${form.email.value.trim()}
+
+Message:
+${form.message.value.trim()}
+    `
+            };
+
+
+            if (!data.fullName || !data.email || !data.message) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            const btn = form.querySelector(".contact-btn");
+            btn.disabled = true;
+            btn.textContent = "Sending...";
+
+            emailjs.send(
+                "service_8e61y9l",
+                "template_n8kn299",
+                data
+            )
+                .then(() => {
+                    alert("Message sent successfully!");
+                    form.reset();
+                })
+                .catch((error) => {
+                    console.error("EmailJS Error:", error);
+                    alert("Failed to send message. Please try again.");
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.textContent = "Send Message";
+                });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        (function () {
+            emailjs.init("eD1IL2bHc58RV8VRc");
+        })();
+    </script>
+
 </body>
 
 </html>

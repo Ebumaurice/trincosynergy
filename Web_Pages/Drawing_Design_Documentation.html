@@ -359,12 +359,14 @@
                 <h2>Do You Have any Questions?</h2>
             </div>
 
-            <form class="contact-form">
-                <input type="text" name="fullname" placeholder="Full Name" required>
-                <input type="tel" name="phone" placeholder="Phone" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <textarea name="message" placeholder="Message" rows="5" required></textarea>
-                <button type="submit" class="contact-btn">Send Message</button>
+            <form class="contact-form" id="contactForm">
+                <input type="text" name="fullName" id="fullName" placeholder="Full Name" required>
+                <input type="tel" name="phone" id="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" id="email" placeholder="Email Address" required>
+                <textarea name="message" id="message" placeholder="Your Message..." required></textarea>
+                <button type="submit" class="contact-btn">
+                    <span class="btn-text">Send Message</span>
+                </button>
             </form>
         </div>
 
@@ -479,6 +481,40 @@
             </div>
         </div>
     </footer>
+
+      <!-- Back to Top Button -->
+  <div id="backToTop" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M12 5L5 12H9V19H15V12H19L12 5Z" fill="currentColor" />
+    </svg>
+  </div>
+
+  <!-- WhatsApp Contact Button -->
+  <a href="https://wa.me/+2348067863688" target="_blank" rel="noopener" id="whatsappBtn" aria-label="Chat on WhatsApp">
+    <img src="../Icons/whatsapp.png" alt="whatsapp" />
+  </a>
+
+      <script>
+        const backToTop = document.getElementById("backToTop");
+
+        // Show button after scrolling
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+        });
+
+        // Scroll to top
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+    
     <script>
 
         /* ===========================
@@ -665,6 +701,68 @@
                 observer.observe(el);
             });
         });
+    </script>
+
+     <script>
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Honeypot spam protection
+            if (form.company && form.company.value !== "") {
+                return;
+            }
+
+            const data = {
+                fullName: form.fullName.value.trim(),
+                email: form.email.value.trim(),
+                message: `
+Full Name: ${form.fullName.value.trim()}
+Phone Number: ${form.phone.value.trim()}
+Email: ${form.email.value.trim()}
+
+Message:
+${form.message.value.trim()}
+    `
+            };
+
+
+            if (!data.fullName || !data.email || !data.message) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            const btn = form.querySelector(".contact-btn");
+            btn.disabled = true;
+            btn.textContent = "Sending...";
+
+            emailjs.send(
+                "service_8e61y9l",
+                "template_n8kn299",
+                data
+            )
+                .then(() => {
+                    alert("Message sent successfully!");
+                    form.reset();
+                })
+                .catch((error) => {
+                    console.error("EmailJS Error:", error);
+                    alert("Failed to send message. Please try again.");
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btn.textContent = "Send Message";
+                });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        (function () {
+            emailjs.init("eD1IL2bHc58RV8VRc");
+        })();
     </script>
 
 </body>

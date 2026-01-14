@@ -806,3 +806,63 @@ a {
         gap: 30px;
     }
 }
+
+
+/* ===================== BACK TO TOP ===================== */
+#backToTop {
+    position: fixed;
+    right: 30px;
+    bottom: 40px;
+  width: 45px;
+    height: 45px;
+    background: #d4b100;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background: #fff;
+    transform: translateY(-4px);
+}
+
+/* Visible state */
+#backToTop.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ===================== WHATSAPP FLOAT ===================== */
+#whatsappBtn {
+    position: fixed;
+    right: 30px;
+    bottom: 110px; /* sits above Back-to-Top */
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+}
+
+#whatsappBtn:hover {
+    transform: translateY(-4px);
+    background: #1ebe5d;
+}
+#whatsappBtn img {
+    width: 28px;
+    height: 28px;
+}
